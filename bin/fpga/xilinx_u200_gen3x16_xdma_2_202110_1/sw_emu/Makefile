@@ -24,7 +24,7 @@ INCLUDE=-I ${SRC}/include/ -I ${PROJECT_HOME}/hlslib/include/hlslib/xilinx -I/us
 
 # conditionally setup compiler flags based on whether or not Xilinx environment is set
 ifdef XILINX_XRT
-HOST_CFLAGS=-D FPGA_DEVICE -D C_KERNEL -D CREATE_FPGA_KERNEL -Wall -I${XILINX_XRT}/include/ ${INCLUDE} -pthread -Wl,-no-as-needed ${HOST_OPTIMIZATION_LEVEL}
+HOST_CFLAGS= -Wall -I${XILINX_XRT}/include/ ${INCLUDE} -pthread -Wl,-no-as-needed ${HOST_OPTIMIZATION_LEVEL}
 HOST_LFLAGS=-L${XILINX_XRT}/lib/ -L/usr/lib/x86_64-linux-gnu -lOpenCL -lopencv_core -lopencv_videoio -lopencv_highgui -lrt -lstdc++ -lpthread -lm
 else
 HOST_CFLAGS=-Wall -pthread -Wl,-no-as-needed ${HOST_OPTIMIZATION_LEVEL} -fopenmp ${INCLUDE}

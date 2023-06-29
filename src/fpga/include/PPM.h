@@ -16,9 +16,7 @@ class Pixel
             std::vector<cv::Vec3b> Pixels;
 };
 
-void extractFrameData(std::string filepath, VideoDetails& videoDetails,std::vector<Pixel>& vecOfAllFramesPixels);
-std::vector<cv::Mat> writePixelIntoFrame(std::vector<Pixel>& AllFrames, VideoDetails videoDetails);
-void ProcessPixelData(std::vector<Pixel>& AllFrames);
+std::vector<cv::Mat> extractFrameData(std::string filepath, VideoDetails& videoDetails);
+std::vector<cv::Mat> ProcessPixelData(std::vector<cv::Mat> Frames, VideoDetails videoDetails);
 void writeIntoVideo(std::vector<cv::Mat> NewFrames, VideoDetails mp4, std::string filepath);
-std::vector<uint32_t> GetAllPixels(std::vector<Pixel>& AllFrames);
-Pixel WtiteKernelData(std::vector<uint32_t> output_result, int size);
+bool compareVectorOfMats(const std::vector<cv::Mat> &vec1, const std::vector<cv::Mat> &vec2);
